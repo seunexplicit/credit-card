@@ -1,1 +1,136 @@
 /* You can add global styles to this file, and also import other style files */
+:host {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body{
+    margin: unset;
+    border:unset;
+  }
+
+  app-root{
+    display: block;
+    width: 100%;
+
+    &>*{
+        display: block;
+        width: 100%;
+    }
+  }
+
+ button, input[type="submit"]{
+ 	padding: 8px 25px;
+ 	font-weight: 600;
+ 	border-radius: 5px;
+    border: unset;
+ 	color: white;
+ 	background-color: darkorange;
+ }
+
+ @keyframes appearGrow{
+    from{
+        opacity:0;
+        transform:scaleY(0%);
+    }
+    to{
+        opacity: 1;
+        transform:scaleY(100%)
+    }
+}
+
+.toast{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+
+    &>div{
+        animation:appearGrow 2s;
+        padding: 20px 50px;
+        background-color: #f3f3f3;
+        border-radius: 10px;
+        max-width: calc(100% - 140px);
+        line-height:25px;
+        box-shadow: 5px 5px 20px -5px rgba(0,0,0,0.3);
+    }
+    &>div.success{ color:green }
+    &>div.danger{ color:red}
+    &>div.warning{ color:#888800 }
+}
+
+ button:focus, input[type="submit"]{
+ 	box-shadow: 2px 2px 30px -16px rgba(0,0,0,0.3);
+ 	background-color: orange;
+ }
+
+form{
+	width: 300px;
+
+    label{
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+}
+input[type="text"], input[type="email"], input[type="password"], input[type="number"], select{
+    border: unset;
+    border-bottom: 1px solid #999999;
+    padding:5px 7px;
+    background-color: unset;
+}
+input[type="text"], input[type="email"], input[type="password"], input[type]{
+ 	width: 250px;
+ 	max-width: 90% 
+}
+.no-outline:focus{
+    outline: none;
+ 	border-bottom: 1px solid white;
+}
+
+.form-sec{
+	margin-top:15px; 
+	margin-bottom: 15px;
+}
+
+ .flex-row, .flex-col{
+ 	display: flex;
+ }
+ .wrap{ flex-wrap:wrap}
+ .flex-col{ flex-direction:column; }
+ .center-justify{ justify-content:center }
+ .center-align{ align-items:center; }
+.centered-cont{ 
+	justify-content:center;
+	align-items:center;
+}
+
+nav{
+    text-align: center;
+    margin-top: 60px;
+
+    a{
+        display: inline-block;
+        padding: 10px 75px;
+        border: 1px solid orange;
+        color:black;
+        font-size: 17px;
+        text-decoration: none;
+        font-weight: bold;
+    } 
+
+    a:hover{
+        background-color: orange;
+        color: white;
+        box-shadow: 0px 10px 25px -24px rgba(0, 0, 0, 0.7);
+    }
+}
+
+.success-message, .error-message{ font-size: 12px; }
+.success-message{ color:green; };
+.error-message{ color:red; }

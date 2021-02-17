@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "credit-card"
+  "defaultProject": "credit-card",
+  "cli": {
+    "analytics": "404e371d-b17c-4f12-9af4-fcb2a567ea6e"
+  }
 }

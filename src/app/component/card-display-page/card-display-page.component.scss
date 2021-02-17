@@ -1,0 +1,73 @@
+
+.articles{
+	margin-top: 40px;
+}
+article{
+	background:grey url('../../../assets/images/card 1.jpg') 0 0/100% 100% no-repeat;
+	width: 290px;
+	height: 185px;
+	border-radius: 20px;
+	font-size: 14px;
+	padding: 10px 15px;
+	color:white;
+	box-shadow: 0px 15px 33px -22px rgba(0, 0, 0, 0.4);
+	margin: 20px 30px;
+
+	&.card0{
+		background:grey url('../../../assets/images/card 1.jpg') 0 0/100% 100% no-repeat;
+
+		#number{
+			color: gray;
+		}
+	}
+	&.card1{
+		background:grey url('../../../assets/images/card 3.jpg') 0 0/100% 100% no-repeat;
+	}
+	&.card2{
+		background:grey url('../../../assets/images/card 4.jpg') 0 0/100% 100% no-repeat;
+	}
+
+	&>div{
+		width: 100%;
+	}
+}
+
+#amount{
+	justify-content:flex-end;
+	font-size: 14px;
+	margin-top: 15px;
+	padding-right: 30px;
+	width: calc(100% - 30px);
+
+	&>:first-child{
+		margin-right: 15px;
+		font-weight: bold;
+	}
+
+	&>:last-child{
+		background-color: black;
+    	padding: 15px;
+    	border-radius: 50%;
+	}
+}
+
+#name{ 
+	margin-top:16px;
+	font-size: 20px;  
+}
+
+#number{
+	font-size: 22px;
+	margin-top: 28px;
+	font-weight: bold;
+	letter-spacing: 8px;
+}
+
+#date{
+	margin-top: 13px;
+	justify-content:space-between;
+	padding-left:25px;
+	padding-right: 25px;
+	width: calc(100% - 50px);
+}
+

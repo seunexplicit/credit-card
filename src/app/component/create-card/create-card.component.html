@@ -1,0 +1,96 @@
+<div class="toast" [style.display]="showToast">
+	<div class="success">
+		<span>Credit Card Created Successfully!</span>
+	</div>
+</div>
+
+<div class="flex-row center-justify">
+<form [formGroup]="creditCardForm" (ngSubmit)="onSubmit()">
+	<div class="form-sec flex-col">
+		<div>
+			<span *ngIf="creditCardNumber.dirty">
+				<span class="error-message" *ngIf="creditCardNumber.errors?.required">
+					Please Enter Credit Card Number
+				</span>
+				<span class="error-message" *ngIf="(creditCardNumber.errors?.notANumber)">
+					Required Digit Only
+				</span>
+			</span>
+		</div>
+		<label>Credit Card Number</label>
+		<input class="no-outline" type="text" formControlName="creditCardNumber" required="required">
+	</div>
+	<div class="form-sec flex-col">
+		<div>
+			<span *ngIf="creditHolder.dirty">
+				<span class="error-message" *ngIf="creditHolder.errors?.required">
+					Please Enter Credit Card Holder Name
+				</span>
+			</span>
+		</div>
+		<label>Credit Holder</label>
+		<input class="no-outline" type="text" formControlName="creditHolder" required="required">
+	</div>
+	<div class="form-sec flex-col">
+		<div>
+			<span *ngIf="cardMonth.dirty&&cardYear.dirty">
+				<span class="error-message" *ngIf="cardMonth.errors?.required||cardYear.errors?.required">
+					Fill Card Expiration Date
+				</span>
+			</span>
+			<span class="error-message" *ngIf="cardMonth.errors?.illegalDate">
+				Card Expired
+			</span>
+		</div>
+		<label>Expiration Date</label>
+		<div class="flex-row">
+			<div class="flex-col">
+				<label>Month</label>
+				<select class="no-outline" formControlName="cardMonth" required>
+					<option></option>
+					<option *ngFor="let month of numberArrayBuilder(12)" [value]="month">{{month}}</option>
+				</select>
+			</div>
+			<div><span>/</span></div>
+			<div class="flex-col">
+				<label>Year</label>
+				<select class="no-outline" formControlName="cardYear" required>
+					<option ></option>
+					<option *ngFor="let year of numberArrayBuilder(21, 26)" [value]="year">{{year}}</option>
+				</select>
+			</div>
+		</div>
+	</div>
+	<div>
+		<div>
+			<span class="error-message" *ngIf="(securityCode.errors?.minlength||securityCode.errors?.maxlength)&&securityCode.dirty">
+				Security Code Must Be Three(3) Digits
+			</span>
+			<span class="error-message" *ngIf="(securityCode.errors?.notANumber)">
+				Required Digit Only
+			</span>
+		</div>
+		<label>Security Code</label>
+		<input type="text" class="no-outline" formControlName="securityCode">
+	</div>
+	<div class="form-sec flex-col">
+		<div>
+			<span class="error-message" *ngIf="amount.errors?.min&&amount.dirty">
+				Amount Must Be Greater Than Zero
+			</span>
+			<span *ngIf="amount.dirty">
+				<span *ngIf="amount.errors?.required">
+					Enter Amount
+				</span>
+			</span>
+		</div>
+		<label>Amount</label>
+		<input class="no-outline" type="number" formControlName="amount" required="required">
+	</div>
+	<div class="form-sec flex-row center-justify">
+		<button type="submit" [disabled]="!creditCardForm.valid">Submit</button>
+	</div>
+</form>
+</div>
+
+<nav><a routerLink="/">View Card</a></nav>

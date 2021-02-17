@@ -1,0 +1,14 @@
+<div class="flex-row center-justify wrap articles">
+	<article *ngFor="let card of cards$ | async;" class="flex-col" [class]="'card'+randomValue()">
+		<div id="amount" class="flex-row center-align">
+			<span>Account Balance  </span>
+			<span>{{card.amount}}</span></div>
+		<div id="name" class="flex-row"><span>{{card.cardHolder}}</span></div>
+		<div id="number" class="flex-row inverse"><span>{{card.creditCardNumber}}</span></div>
+		<div id="date" class="flex-row"><span>Exp. Date : {{card.expirationDate}}</span><span><span style="font-style: italic;">CVV </span>:{{card.securityCode}}</span></div>
+	</article>
+</div>
+
+<nav>
+	<a routerLink="/create-card">Create Card</a>
+</nav>
